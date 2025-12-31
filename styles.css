@@ -273,8 +273,14 @@ p {
     left: 0;
     width: 100%;
     z-index: 100;
-    padding: var(--sp-3) 0;
+    padding: var(--sp-1) 0;
     background-color: var(--c-green-600);
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        padding: var(--sp-3) 0;
+    }
 }
 
 .nav-container {
@@ -357,7 +363,13 @@ p {
     justify-content: center;
     text-align: center;
     color: var(--c-white);
-    margin-top: 72px; /* Account for fixed navbar */
+    margin-top: 48px; /* Account for fixed navbar on mobile */
+}
+
+@media (min-width: 768px) {
+    .hero {
+        margin-top: 72px; /* Larger navbar on desktop */
+    }
 }
 
 .hero-bg {
