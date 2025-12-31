@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Original uncompressed images
+assets/*-original.png
+assets/*-original.jpg
+
+# Claude settings
+.claude/
