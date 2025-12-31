@@ -268,12 +268,13 @@ p {
 
 /* Navbar */
 .navbar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
     padding: var(--sp-3) 0;
+    background-color: var(--c-green-600);
 }
 
 .nav-container {
@@ -356,6 +357,7 @@ p {
     justify-content: center;
     text-align: center;
     color: var(--c-white);
+    margin-top: 72px; /* Account for fixed navbar */
 }
 
 .hero-bg {
@@ -925,6 +927,53 @@ p {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* GSAP Animation Initial States */
+.brand-logo img,
+.hero .subhead,
+.hero-buttons {
+    opacity: 0;
+}
+
+.section-header .eyebrow,
+.section-header h2,
+.feature-card,
+.gallery-item,
+.membership-card,
+.board-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+#about .image-frame,
+#about .col-text {
+    opacity: 0;
+}
+
+/* Navbar scroll state */
+.navbar {
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(79, 125, 85, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Enhanced board image transition */
+.board-image img {
+    transition: filter 0.15s ease-out, transform 0.15s ease-out;
+}
+
+.board-image:hover img {
+    transform: scale(1.02);
+}
+
+/* Button magnetic hover enhancement */
+.btn-primary {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, background-color 0.2s ease;
 }
 
 /* Google Form Container */
