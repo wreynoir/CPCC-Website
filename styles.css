@@ -8,7 +8,7 @@
     --c-white: #FFFFFF;
     --c-border: #E0D8C8;
     --c-text-charcoal: #26231F;
-    --c-text-muted: #7A7468;
+    --c-text-muted: #6B6159;
     --c-sage: #C9D8C0;
     --c-gold: #C9A45A;
     --c-skyline: #8DA3BF;
@@ -16,11 +16,30 @@
     --c-warning: #F3B26A;
     --c-error: #C86464;
 
+    /* Gold Accent System (Luxury Enhancement) */
+    --c-gold-100: #F5EDD8;
+    --c-gold-300: #E8D5A1;
+    --c-gold-500: #C9A45A;
+    --c-gold-600: #B08D3F;
+    --c-gold-700: #8B6F32;
+
     /* Typography */
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
 
+    /* Fluid Typography (Responsive Scaling) */
+    --font-size-xs: clamp(12px, 0.75rem + 0.1vw, 14px);
+    --font-size-sm: clamp(14px, 0.875rem + 0.1vw, 16px);
+    --font-size-base: clamp(16px, 1rem + 0.2vw, 18px);
+    --font-size-lg: clamp(18px, 1.125rem + 0.3vw, 22px);
+    --font-size-xl: clamp(20px, 1.25rem + 0.5vw, 28px);
+    --font-size-2xl: clamp(24px, 1.5rem + 1vw, 36px);
+    --font-size-3xl: clamp(32px, 2rem + 1.5vw, 48px);
+    --font-size-4xl: clamp(48px, 3rem + 2vw, 72px);
+
     /* Spacing Scale (8px base) */
+    --sp-0: 0;
+    --sp-px: 1px;
     --sp-05: 4px;
     --sp-1: 8px;
     --sp-2: 16px;
@@ -35,9 +54,44 @@
     --radius-md: 8px;
     --radius-lg: 12px;
 
-    /* Shadows */
+    /* Extended Shadow System (7 Levels) */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
     --shadow-card: 0px 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.08);
     --shadow-hover: 0px 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.16);
+
+    /* Gold Shimmer Shadows (Luxury) */
+    --shadow-gold-sm: 0 4px 12px rgba(201, 164, 90, 0.15);
+    --shadow-gold-md: 0 8px 24px rgba(201, 164, 90, 0.25);
+    --shadow-gold-lg: 0 16px 40px rgba(201, 164, 90, 0.3);
+
+    /* Gradient System */
+    --gradient-hero: linear-gradient(135deg, rgba(79, 125, 85, 0.95) 0%, rgba(108, 161, 113, 0.9) 100%);
+    --gradient-gold: linear-gradient(135deg, #E8D5A1 0%, #C9A45A 50%, #B08D3F 100%);
+    --gradient-shimmer: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+
+    /* Animation Timing */
+    --duration-instant: 100ms;
+    --duration-fast: 200ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+    --duration-slower: 800ms;
+
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-gentle: cubic-bezier(0.33, 1, 0.68, 1);
+
+    /* Z-Index Scale */
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-overlay: 300;
+    --z-modal: 400;
+    --z-toast: 500;
 }
 
 /* Reset & Base */
@@ -60,6 +114,31 @@ body {
     font-family: var(--font-body);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    font-feature-settings: "liga" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+    position: relative;
+}
+
+/* Subtle paper texture overlay (luxury depth) */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: var(--z-base);
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' /%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
+/* Hide texture on mobile for performance */
+@media (max-width: 768px) {
+    body::before {
+        display: none;
+    }
 }
 
 img {
@@ -91,21 +170,21 @@ h6 {
 }
 
 h1 {
-    font-size: 72px;
+    font-size: var(--font-size-4xl);
     line-height: 0.95;
     letter-spacing: -0.02em;
     margin-bottom: var(--sp-3);
 }
 
 h2 {
-    font-size: 48px;
+    font-size: var(--font-size-3xl);
     line-height: 1.05;
     letter-spacing: -0.015em;
     margin-bottom: var(--sp-2);
 }
 
 h3 {
-    font-size: 32px;
+    font-size: var(--font-size-2xl);
     line-height: 1.15;
     letter-spacing: -0.01em;
     margin-bottom: var(--sp-1);
@@ -135,8 +214,16 @@ p {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--c-green-600);
+    color: #3D6343;
     margin-bottom: var(--sp-2);
+}
+
+/* Gold eyebrow variant (luxury) */
+.eyebrow.gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .sr-only {
@@ -236,12 +323,34 @@ p {
     background-color: var(--c-green-500);
     color: var(--c-white);
     border-color: var(--c-green-500);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(108, 161, 113, 0.2),
+                0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Gold shimmer animation */
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-shimmer);
+    transition: left 0.6s var(--ease-smooth);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-primary:hover {
-    background-color: var(--c-green-600);
-    border-color: var(--c-green-600);
-    box-shadow: 0 4px 12px rgba(108, 161, 113, 0.3);
+    background: linear-gradient(135deg, var(--c-green-500) 0%, var(--c-green-600) 100%);
+    border-color: var(--c-gold-500);
+    box-shadow: 0 6px 20px rgba(108, 161, 113, 0.35),
+                0 2px 6px rgba(0, 0, 0, 0.15),
+                0 0 0 2px rgba(201, 164, 90, 0.2);
 }
 
 .btn-secondary {
@@ -266,20 +375,73 @@ p {
     color: var(--c-white);
 }
 
+/* Gold Decorative Elements */
+.ornamental-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-gold);
+    margin: var(--sp-4) auto;
+    border-radius: 2px;
+    box-shadow: var(--shadow-gold-sm);
+}
+
+/* Gold badge for exclusive content */
+.badge-exclusive {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--gradient-gold);
+    color: var(--c-text-charcoal);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 20px;
+    box-shadow: var(--shadow-gold-md);
+}
+
+.badge-exclusive::before {
+    content: '✦';
+    font-size: 10px;
+}
+
 /* Navbar */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: var(--z-sticky);
     padding: var(--sp-1) 0;
-    background-color: var(--c-green-600);
+    background: rgba(79, 125, 85, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background var(--duration-normal) var(--ease-smooth),
+                backdrop-filter var(--duration-normal) var(--ease-smooth),
+                box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+.navbar.scrolled {
+    background: rgba(79, 125, 85, 0.95);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 768px) {
     .navbar {
         padding: var(--sp-3) 0;
+    }
+}
+
+/* Mobile: simpler backdrop for performance */
+@media (max-width: 768px) {
+    .navbar {
+        background: rgba(79, 125, 85, 0.95);
+        backdrop-filter: blur(10px) saturate(150%);
+        -webkit-backdrop-filter: blur(10px) saturate(150%);
     }
 }
 
@@ -306,7 +468,29 @@ p {
     font-family: var(--font-body);
     font-size: 15px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
+    position: relative;
+    transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+/* Desktop-only: Gold underline animation */
+@media (hover: hover) {
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-gold);
+        transition: width var(--duration-normal) var(--ease-smooth),
+                    left var(--duration-normal) var(--ease-smooth);
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+        left: 0;
+    }
 }
 
 .nav-links a:hover {
@@ -443,13 +627,47 @@ p {
     background: var(--c-white);
     padding: var(--sp-4);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-card),
+                0 1px 2px rgba(0, 0, 0, 0.03),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.02);
+    transition: transform var(--duration-normal) var(--ease-smooth),
+                box-shadow var(--duration-normal) var(--ease-smooth);
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover),
+                0 2px 8px rgba(0, 0, 0, 0.05),
+                0 1px 3px rgba(108, 161, 113, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.02);
+}
+
+/* Glass morphism card variant (luxury) */
+.card-glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-lg),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.card-glass:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(201, 164, 90, 0.3);
+    box-shadow: var(--shadow-xl),
+                var(--shadow-gold-md),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    transform: translateY(-8px);
+}
+
+/* Mobile: simpler backdrop for performance */
+@media (max-width: 768px) {
+    .card-glass {
+        backdrop-filter: blur(10px) saturate(130%);
+        -webkit-backdrop-filter: blur(10px) saturate(130%);
+    }
 }
 
 .icon-box {
@@ -475,12 +693,42 @@ p {
     display: block;
 }
 
+.prose {
+    font-feature-settings: "liga" 1, "kern" 1, "calt" 1;
+}
+
 .prose p {
     margin-bottom: var(--sp-2);
     font-size: 18px;
     font-family: var(--font-heading);
     line-height: 1.6;
     color: var(--c-text-charcoal);
+}
+
+/* Drop cap for prose (editorial luxury) */
+.prose p:first-of-type::first-letter {
+    font-size: 3.5em;
+    line-height: 0.85;
+    float: left;
+    margin: 0 0.1em 0 0;
+    font-family: var(--font-heading);
+    color: var(--c-gold-600);
+    font-weight: 700;
+}
+
+/* Underlined links in prose for accessibility */
+.prose a {
+    color: var(--c-green-600);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: color var(--duration-fast) var(--ease-smooth),
+                text-decoration-thickness var(--duration-fast) var(--ease-smooth);
+}
+
+.prose a:hover {
+    color: var(--c-green-500);
+    text-decoration-thickness: 2px;
 }
 
 .signature {
@@ -641,18 +889,42 @@ p {
 
 /* Membership */
 .membership-card {
-    background: var(--c-cream-bg);
-    border: 1px solid var(--c-green-600);
-    border-radius: var(--radius-md);
-    padding: var(--sp-2);
+    background: var(--gradient-gold);
+    border: 2px solid var(--c-gold-500);
+    border-radius: var(--radius-lg);
+    padding: 4px;
     position: relative;
+    box-shadow: var(--shadow-gold-lg),
+                0 0 60px rgba(201, 164, 90, 0.2);
+    transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+/* Gold glow effect */
+.membership-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-lg);
+    opacity: 0.5;
+    z-index: -1;
+    filter: blur(20px);
+    transition: opacity var(--duration-normal) var(--ease-smooth);
+}
+
+.membership-card:hover::before {
+    opacity: 0.7;
 }
 
 .card-content {
     background: var(--c-white);
     padding: var(--sp-6);
-    border-radius: 4px;
+    border-radius: calc(var(--radius-lg) - 2px);
     text-align: center;
+    position: relative;
 }
 
 .benefit-list {
@@ -1143,4 +1415,105 @@ p {
     font-family: var(--font-heading);
     font-size: 96px;
     color: rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Skip to main content link */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--c-green-600);
+    color: white;
+    padding: 12px 20px;
+    font-weight: 600;
+    z-index: var(--z-toast);
+    border-radius: 0 0 var(--radius-md) 0;
+    transition: top var(--duration-fast) var(--ease-smooth);
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--c-gold-500);
+    outline-offset: 2px;
+}
+
+/* Global focus styles (gold luxury brand) */
+*:focus-visible {
+    outline: 3px solid var(--c-gold-500);
+    outline-offset: 2px;
+}
+
+/* Remove outline for mouse clicks, keep for keyboard */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Button focus states */
+.btn:focus-visible {
+    outline: 3px solid var(--c-gold-600);
+    outline-offset: 4px;
+    box-shadow: 0 0 0 6px rgba(201, 164, 90, 0.2);
+}
+
+.btn-primary:focus-visible {
+    outline-color: var(--c-gold-500);
+    box-shadow: 0 4px 12px rgba(108, 161, 113, 0.3),
+                0 0 0 4px rgba(201, 164, 90, 0.3);
+}
+
+/* Link focus states */
+a:focus-visible {
+    outline: 2px solid var(--c-gold-600);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/* Card focus states */
+.card:focus-visible {
+    outline: 3px solid var(--c-gold-500);
+    outline-offset: 4px;
+    transform: translateY(-4px);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Remove parallax effects */
+    .hero-bg img,
+    .gallery-item img {
+        transform: none !important;
+    }
+
+    /* Simplify hover effects to opacity only */
+    .card:hover {
+        transform: none;
+        opacity: 0.9;
+    }
+
+    .btn:hover {
+        transform: none;
+        opacity: 0.95;
+    }
+
+    /* Disable shimmer animations */
+    .btn-primary::before {
+        display: none;
+    }
+
+    /* Disable texture overlay */
+    body::before {
+        display: none;
+    }
 }

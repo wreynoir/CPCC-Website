@@ -19,34 +19,48 @@
     <meta property="og:url" content="https://centralparkcroquet.com">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="assets/hero-real.jpg">
+    <link rel="preload" as="image" href="assets/logo.png">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
+    <!-- Prefetch next pages for instant navigation -->
+    <link rel="prefetch" href="merch.html">
+    <link rel="prefetch" href="apply.html">
+
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container nav-container">
             <a href="#" class="logo">CPCC</a>
-            <div class="nav-links">
-                <a href="#experience">Experience</a>
-                <a href="#about">About</a>
-                <a href="#schedule">Schedule</a>
-                <a href="#gallery">Gallery</a>
-                <a href="merch.html">Merch</a>
-                <a href="#membership" class="nav-cta">Membership</a>
+            <div class="nav-links" id="nav-links" role="menu">
+                <a href="#experience" role="menuitem">Experience</a>
+                <a href="#about" role="menuitem">About</a>
+                <a href="#schedule" role="menuitem">Schedule</a>
+                <a href="#gallery" role="menuitem">Gallery</a>
+                <a href="merch.html" role="menuitem">Merch</a>
+                <a href="#membership" class="nav-cta" role="menuitem">Membership</a>
             </div>
-            <button class="mobile-menu-btn" aria-label="Menu">
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
                 <span></span>
                 <span></span>
             </button>
         </div>
     </nav>
+
+    <!-- Main content wrapper -->
+    <main id="main-content">
 
     <!-- Hero Section -->
     <header class="hero">
@@ -336,6 +350,7 @@
             </div>
         </div>
     </footer>
+    </main>
 
     <!-- GSAP Animation Library -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>

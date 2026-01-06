@@ -27,18 +27,18 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar" style="position: relative; background-color: var(--c-green-600);">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container nav-container">
             <a href="index.html" class="logo">CPCC</a>
-            <div class="nav-links">
-                <a href="index.html#experience">Experience</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#schedule">Schedule</a>
-                <a href="index.html#gallery">Gallery</a>
-                <a href="merch.html">Merch</a>
-                <a href="index.html#membership" class="nav-cta">Membership</a>
+            <div class="nav-links" id="nav-links" role="menu">
+                <a href="index.html#experience" role="menuitem">Experience</a>
+                <a href="index.html#about" role="menuitem">About</a>
+                <a href="index.html#schedule" role="menuitem">Schedule</a>
+                <a href="index.html#gallery" role="menuitem">Gallery</a>
+                <a href="merch.html" role="menuitem">Merch</a>
+                <a href="index.html#membership" class="nav-cta" role="menuitem">Membership</a>
             </div>
-            <button class="mobile-menu-btn" aria-label="Menu">
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
                 <span></span>
                 <span></span>
             </button>

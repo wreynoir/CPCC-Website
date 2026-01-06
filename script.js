@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ============================================
-    // Mobile Menu (existing functionality)
+    // ACCESSIBILITY: Reduced Motion Support
+    // ============================================
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion && typeof gsap !== 'undefined') {
+        gsap.globalTimeline.timeScale(100);
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        }
+    }
+
+    // ============================================
+    // Mobile Menu (with ARIA management)
     // ============================================
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
@@ -8,8 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (menuBtn && navLinks) {
         menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+
             if (navLinks.style.display === 'flex') {
                 navLinks.style.display = 'none';
+                menuBtn.setAttribute('aria-expanded', 'false');
             } else {
                 navLinks.style.display = 'flex';
                 navLinks.style.flexDirection = 'column';
@@ -20,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.style.backgroundColor = 'rgba(38, 35, 31, 0.95)';
                 navLinks.style.padding = '24px';
                 navLinks.style.backdropFilter = 'blur(10px)';
+                menuBtn.setAttribute('aria-expanded', 'true');
             }
             menuBtn.classList.toggle('active');
         });
@@ -42,6 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.style.width = 'auto';
             } else {
                 navLinks.style.display = 'none';
+            }
+        });
+    }
+
+    // ============================================
+    // Navbar Scroll Effect (Glass Morphism)
+    // ============================================
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         });
     }
