@@ -740,81 +740,121 @@ p {
 }
 
 /* Schedule */
-.schedule-table {
+.schedule-list {
+    max-width: 800px;
+    margin: var(--sp-5) auto;
+    padding: 0 var(--sp-2);
+}
+
+.schedule-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--c-border);
+    transition: all 0.3s ease;
+    gap: var(--sp-3);
+    margin: 0 auto;
+}
+
+.schedule-item:first-child {
     border-top: 1px solid var(--c-border);
 }
 
-.schedule-row {
+.schedule-item:hover {
+    background-color: var(--c-green-100);
+    transform: translateX(4px);
+}
+
+.schedule-info {
     display: flex;
     align-items: center;
-    padding: var(--sp-3) 0;
-    border-bottom: 1px solid var(--c-border);
-    transition: background 0.2s;
-}
-
-.schedule-row:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
-.date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 80px;
-    margin-right: var(--sp-3);
-    text-align: center;
-}
-
-.date .day {
-    font-family: var(--font-heading);
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--c-green-600);
-}
-
-.date .month {
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: var(--c-text-muted);
-    margin-top: 4px;
-}
-
-.event-details {
+    gap: var(--sp-4);
     flex: 1;
 }
 
-.event-details h4 {
-    font-size: 20px;
+.schedule-date {
     font-family: var(--font-heading);
-    margin-bottom: 4px;
+    font-size: clamp(18px, 3vw, 22px);
+    font-weight: 600;
+    color: var(--c-green-600);
+    min-width: 100px;
+    flex-shrink: 0;
 }
 
-.event-details p {
-    font-size: 14px;
+.schedule-label {
+    font-size: clamp(14px, 2.5vw, 16px);
+    color: var(--c-text);
+    text-align: center;
+    flex: 1;
 }
 
-.status {
-    display: inline-block;
-    padding: 6px 12px;
+.schedule-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    transition: all 0.3s ease;
 }
 
-.status.open {
+/* Status: Coming Soon (RSVPs not open yet) */
+.schedule-status.upcoming {
+    background-color: #F7F3EA;
+    color: var(--c-text-muted);
+    border: 1px solid var(--c-border);
+}
+
+/* Status: RSVP Open (clickable link) */
+.schedule-status.open {
     background-color: var(--c-green-100);
     color: var(--c-green-600);
+    border: 1px solid var(--c-green-600);
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.status.waitlist {
-    background-color: #FFF4E5;
-    color: var(--c-warning);
+.schedule-status.open:hover {
+    background-color: var(--c-green-600);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Status: Completed (event has passed) */
+.schedule-status.completed {
+    background-color: #E8E8E8;
+    color: #999;
+    border: 1px solid #D0D0D0;
+}
+
+@media (min-width: 768px) {
+    .schedule-item {
+        padding: var(--sp-4) var(--sp-5);
+    }
+
+    .schedule-info {
+        gap: var(--sp-5);
+    }
+
+    .schedule-date {
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 767px) {
+    .schedule-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sp-1);
+    }
+
+    .schedule-date {
+        min-width: auto;
+    }
 }
 
 .mt-large {

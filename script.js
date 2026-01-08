@@ -326,6 +326,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================
+    // Schedule Items (Staggered Reveal)
+    // ============================================
+    const scheduleItems = document.querySelectorAll('.schedule-item');
+    if (scheduleItems.length > 0) {
+        gsap.fromTo(scheduleItems,
+            { opacity: 0, x: -30 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 0.5,
+                stagger: 0.08,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.schedule-list',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    }
+
+    // ============================================
     // 10. Price Counter Animation
     // ============================================
     const priceAmount = document.querySelector('.amount');
