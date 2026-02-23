@@ -348,34 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================
-    // 10. Price Counter Animation
-    // ============================================
-    const priceAmount = document.querySelector('.amount');
-    if (priceAmount) {
-        const targetPrice = 50;
-        let hasAnimated = false;
-
-        ScrollTrigger.create({
-            trigger: '#membership',
-            start: 'top 75%',
-            onEnter: () => {
-                if (hasAnimated) return;
-                hasAnimated = true;
-
-                let currentPrice = { value: 0 };
-                gsap.to(currentPrice, {
-                    value: targetPrice,
-                    duration: 1.5,
-                    ease: 'power2.out',
-                    onUpdate: () => {
-                        priceAmount.textContent = '$' + Math.round(currentPrice.value);
-                    }
-                });
-            }
-        });
-    }
-
-    // ============================================
     // 11. Navbar Background on Scroll (REMOVED - navbar is now always green/fixed)
     // ============================================
 
