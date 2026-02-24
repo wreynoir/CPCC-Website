@@ -23,6 +23,15 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Force Shopify Buy Button wrappers to center */
+        .shopify-buy-frame,
+        .shopify-buy-frame--product {
+            width: fit-content !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,94 +57,90 @@
     <!-- Header -->
     <header class="section bg-cream" style="padding-bottom: 0;">
         <div class="container center">
-            <span class="eyebrow">The Archive</span>
+            <span class="eyebrow">The Collection</span>
             <h1>Club Merch</h1>
             <p class="body-large" style="max-width: 600px; margin: 0 auto;">
-                A collection of our past season goods. Designed in New York.
+                Designed in New York. Worn on the meadow.
             </p>
         </div>
     </header>
 
-    <!-- 2026 Sneak Peek -->
+    <!-- All Merch -->
     <section class="section bg-cream">
         <div class="container">
-            <div class="collection-header">
-                <h2>2026 Season</h2>
-            </div>
             <div class="grid-merch">
-                <div class="merch-item placeholder-item">
-                    <div class="placeholder-box">
-                        <span>?</span>
+                <!-- 2025 Hat -->
+                <div class="merch-item">
+                    <span class="merch-season-tag">2025</span>
+                    <div class="merch-carousel">
+                        <button class="merch-arrow merch-arrow-prev" aria-label="Previous image">&#8249;</button>
+                        <div class="merch-center-col">
+                            <div class="merch-gallery" data-product="hat" role="button" tabindex="0" aria-label="View hat details">
+                                <img class="merch-slide" src="assets/Transparent%20CPCC%202025%20Hat%20-%20Base.png" alt="CPCC 2025 Club Cap">
+                                <div class="merch-dots"></div>
+                                <div class="merch-slides-data" hidden>
+                                    <span data-src="assets/Transparent%20CPCC%202025%20Hat%20-%20Base.png">Base</span>
+                                    <span data-src="assets/Transparent%20CPCC%202025%20Hat%20-%20Angle%201.png">Angle 1</span>
+                                    <span data-src="assets/Transparent%20CPCC%202025%20Hat%20-%20Angle%202.png">Angle 2</span>
+                                    <span data-src="assets/Transparent%20CPCC%202025%20Hat%20-%20Angle%203.png">Angle 3</span>
+                                    <span data-src="assets/Transparent%20CPCC%202025%20Hat%20-%20Back.png">Back</span>
+                                </div>
+                            </div>
+                            <div class="merch-product-info">
+                                <h3>Club Cap</h3>
+                                <p class="merch-price">$15.00</p>
+                            </div>
+                            <div id="product-component-1771889596952"></div>
+                        </div>
+                        <button class="merch-arrow merch-arrow-next" aria-label="Next image">&#8250;</button>
                     </div>
-                    <div class="merch-info">
-                        <h3>2026 Kit</h3>
-                        <p class="merch-status">Coming Soon</p>
-                        <p class="merch-desc">New designs in the works. Stay tuned.</p>
+                </div>
+
+                <!-- 2024 White Shirt -->
+                <div class="merch-item">
+                    <span class="merch-season-tag">2024</span>
+                    <div class="merch-carousel">
+                        <button class="merch-arrow merch-arrow-prev" aria-label="Previous image">&#8249;</button>
+                        <div class="merch-center-col">
+                            <div class="merch-gallery" data-product="shirt" role="button" tabindex="0" aria-label="View shirt details">
+                                <img class="merch-slide" src="assets/Transparent%20CPCC%202024%20Shirt%20-%20Base.png" alt="CPCC 2024 Inaugural Tee">
+                                <div class="merch-dots"></div>
+                                <div class="merch-slides-data" hidden>
+                                    <span data-src="assets/Transparent%20CPCC%202024%20Shirt%20-%20Base.png">Base</span>
+                                    <span data-src="assets/Transparent%20CPCC%202024%20Shirt%20-%20Female%20Front.png">Female Front</span>
+                                    <span data-src="assets/Transparent%20CPCC%202024%20Shirt%20-%20Female%20Back.png">Female Back</span>
+                                    <span data-src="assets/Transparent%20CPCC%202024%20Shirt%20-%20Male%20Front.png">Male Front</span>
+                                    <span data-src="assets/Transparent%20CPCC%202024%20Shirt%20-%20Male%20Back.png">Male Back</span>
+                                </div>
+                            </div>
+                            <div class="merch-product-info">
+                                <h3>Inaugural Tee</h3>
+                                <p class="merch-price">$25.00</p>
+                            </div>
+                            <div id="product-component-1771889627417"></div>
+                        </div>
+                        <button class="merch-arrow merch-arrow-next" aria-label="Next image">&#8250;</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2025 Collection -->
-    <section class="section">
-        <div class="container">
-            <div class="collection-header">
-                <h2>2025 Season</h2>
-            </div>
-            <div class="grid-merch">
-                <!-- Green Shirt -->
-                <div class="merch-item">
-                    <div class="merch-images">
-                        <img src="assets/merch-green-back.png" alt="2025 Club Shirt Back" class="main-img" loading="lazy">
-                        <img src="assets/merch-green-front.png" alt="2025 Club Shirt Front" class="hover-img" loading="lazy">
-                    </div>
-                    <div class="merch-info">
-                        <h3>Club Tee &mdash; Sage</h3>
-                        <p class="merch-status">Sold Out*</p>
-                        <p class="merch-desc">Heavyweight cotton.</p>
-                        <p class="merch-note">*Limited extras available. <a
-                                href="mailto:hello@centralparkcroquet.com">Contact us</a> to inquire.</p>
-                    </div>
+    <!-- Product Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Product image viewer">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <div class="lightbox-content">
+            <div class="lightbox-image-area">
+                <button class="lightbox-arrow lightbox-prev" aria-label="Previous image">&#8249;</button>
+                <div class="lightbox-img-wrapper">
+                    <img src="" alt="" id="lightbox-img">
                 </div>
-
-                <!-- Hat -->
-                <div class="merch-item">
-                    <div class="merch-image-single">
-                        <img src="assets/merch-hat.png" alt="2025 Club Hat" loading="lazy">
-                    </div>
-                    <div class="merch-info">
-                        <h3>Club Cap &mdash; White</h3>
-                        <p class="merch-status">Sold Out</p>
-                        <p class="merch-desc">Embroidered dad hat. Adjustable strap.</p>
-                    </div>
-                </div>
+                <button class="lightbox-arrow lightbox-next" aria-label="Next image">&#8250;</button>
             </div>
+            <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
+            <div class="lightbox-details" id="lightbox-details"></div>
         </div>
-    </section>
-
-    <!-- 2024 Collection -->
-    <section class="section bg-warm">
-        <div class="container">
-            <div class="collection-header">
-                <h2>2024 Season</h2>
-            </div>
-            <div class="grid-merch">
-                <!-- White Shirt -->
-                <div class="merch-item">
-                    <div class="merch-images">
-                        <img src="assets/merch-white-back.png" alt="2024 Club Shirt Back" class="main-img" loading="lazy">
-                        <img src="assets/merch-white-front.png" alt="2024 Club Shirt Front" class="hover-img" loading="lazy">
-                    </div>
-                    <div class="merch-info">
-                        <h3>Inaugural Tee &mdash; White</h3>
-                        <p class="merch-status">No Longer For Sale</p>
-                        <p class="merch-desc">The one that started it all. Classic fit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
 
 
@@ -176,6 +181,108 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
+
+    <!-- Shopify Buy Button -->
+    <script type="text/javascript">
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) {
+          ShopifyBuyInit();
+        } else {
+          loadScript();
+        }
+      } else {
+        loadScript();
+      }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
+      }
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: 'veya2s-sp.myshopify.com',
+          storefrontAccessToken: '966d2b70d03cf4476764e98b78f91fbd',
+        });
+        var charcoal = "#26231f";
+        var cream = "#f7f3ea";
+        var buttonStyles = {
+          "font-family": "Montserrat, sans-serif",
+          "font-weight": "bold",
+          ":hover": { "background-color": "#619166" },
+          "background-color": "#6ca171",
+          ":focus": { "background-color": "#619166" },
+          "border-radius": "24px",
+          "padding-left": "30px",
+          "padding-right": "30px"
+        };
+        var productStyles = {
+          "product": { "text-align": "center", "@media (min-width: 601px)": { "max-width": "100%", "margin-left": "auto", "margin-right": "auto", "margin-bottom": "0" } },
+          "button": Object.assign({}, buttonStyles, { "margin-left": "auto", "margin-right": "auto" }),
+          "buttonWrapper": { "text-align": "center" }
+        };
+        var cartOptions = {
+          "styles": {
+            "button": { "font-family": "Montserrat, sans-serif", "font-weight": "bold", ":hover": { "background-color": "#619166" }, "background-color": "#6ca171", ":focus": { "background-color": "#619166" }, "border-radius": "24px" },
+            "title": { "color": charcoal }, "header": { "color": charcoal }, "lineItems": { "color": charcoal },
+            "subtotalText": { "color": charcoal }, "subtotal": { "color": charcoal }, "notice": { "color": charcoal },
+            "currency": { "color": charcoal }, "close": { "color": charcoal, ":hover": { "color": charcoal } },
+            "empty": { "color": charcoal }, "noteDescription": { "color": charcoal },
+            "discountText": { "color": charcoal }, "discountIcon": { "fill": charcoal }, "discountAmount": { "color": charcoal },
+            "cart": { "background-color": cream }, "footer": { "background-color": cream }
+          },
+          "text": { "total": "Subtotal", "button": "Checkout" },
+          "googleFonts": ["Montserrat"]
+        };
+        var toggleOptions = {
+          "styles": { "toggle": { "font-family": "Montserrat, sans-serif", "font-weight": "bold", "background-color": "#6ca171", ":hover": { "background-color": "#619166" }, ":focus": { "background-color": "#619166" } } },
+          "googleFonts": ["Montserrat"]
+        };
+        var lineItemOptions = {
+          "styles": {
+            "variantTitle": { "color": charcoal }, "title": { "color": charcoal }, "price": { "color": charcoal },
+            "fullPrice": { "color": charcoal }, "discount": { "color": charcoal }, "discountIcon": { "fill": charcoal },
+            "quantity": { "color": charcoal },
+            "quantityIncrement": { "color": charcoal, "border-color": charcoal },
+            "quantityDecrement": { "color": charcoal, "border-color": charcoal },
+            "quantityInput": { "color": charcoal, "border-color": charcoal }
+          }
+        };
+        var googleFonts = ["Montserrat"];
+        var cartOnlyProduct = {
+          "styles": productStyles,
+          "contents": { "img": false, "title": false, "price": false, "options": false, "button": true },
+          "text": { "button": "Add to cart" },
+          "googleFonts": googleFonts
+        };
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          /* Inaugural Tee */
+          ui.createComponent('product', {
+            id: '15025065197932',
+            node: document.getElementById('product-component-1771889627417'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: {
+              "product": cartOnlyProduct, "option": {}, "cart": cartOptions, "toggle": toggleOptions, "lineItem": lineItemOptions
+            }
+          });
+          /* Club Cap */
+          ui.createComponent('product', {
+            id: '15025065329004',
+            node: document.getElementById('product-component-1771889596952'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: {
+              "product": cartOnlyProduct, "option": {}, "cart": cartOptions, "toggle": toggleOptions, "lineItem": lineItemOptions
+            }
+          });
+
+          /* Center the buy buttons after they render */
+        });
+      }
+    })();
+    </script>
 </body>
 
 </html>

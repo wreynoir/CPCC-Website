@@ -389,4 +389,196 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         );
     }
+
+    // ============================================
+    // Merch: Card Image Carousel (Arrow Navigation)
+    // ============================================
+    document.querySelectorAll('.merch-carousel').forEach(carousel => {
+        const gallery = carousel.querySelector('.merch-gallery');
+        const slide = gallery.querySelector('.merch-slide');
+        const dataEls = gallery.querySelectorAll('.merch-slides-data span');
+        const dotsContainer = gallery.querySelector('.merch-dots');
+        const images = Array.from(dataEls).map(el => el.dataset.src);
+        let idx = 0;
+        let animating = false;
+
+        // Build dots
+        images.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'merch-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Image ' + (i + 1));
+            dot.addEventListener('click', (e) => { e.stopPropagation(); goTo(i, i > idx ? 'next' : 'prev'); });
+            dotsContainer.appendChild(dot);
+        });
+
+        function goTo(i, direction) {
+            if (animating || i === idx) return;
+            animating = true;
+
+            var outClass = direction === 'next' ? 'slide-out-left' : 'slide-out-right';
+            var inClass = direction === 'next' ? 'slide-in-right' : 'slide-in-left';
+
+            slide.classList.add(outClass);
+            slide.addEventListener('animationend', function handler() {
+                slide.removeEventListener('animationend', handler);
+                slide.classList.remove(outClass);
+                idx = i;
+                slide.src = images[idx];
+                slide.classList.add(inClass);
+                slide.addEventListener('animationend', function handler2() {
+                    slide.removeEventListener('animationend', handler2);
+                    slide.classList.remove(inClass);
+                    animating = false;
+                });
+            });
+
+            dotsContainer.querySelectorAll('.merch-dot').forEach((d, j) => {
+                d.classList.toggle('active', j === i);
+            });
+        }
+
+        carousel.querySelector('.merch-arrow-prev').addEventListener('click', (e) => {
+            e.stopPropagation();
+            goTo((idx - 1 + images.length) % images.length, 'prev');
+        });
+        carousel.querySelector('.merch-arrow-next').addEventListener('click', (e) => {
+            e.stopPropagation();
+            goTo((idx + 1) % images.length, 'next');
+        });
+
+        // Store index accessor on the gallery element
+        gallery._getIndex = () => idx;
+        gallery._images = images;
+    });
+
+    // ============================================
+    // Merch: Lightbox
+    // ============================================
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxThumbs = document.getElementById('lightbox-thumbs');
+        const lightboxDetails = document.getElementById('lightbox-details');
+        const prevBtn = lightbox.querySelector('.lightbox-prev');
+        const nextBtn = lightbox.querySelector('.lightbox-next');
+
+        let currentImages = [];
+        let currentIndex = 0;
+
+        const productDescriptions = {
+            hat: {
+                title: 'Club Cap',
+                description: 'By 2025, the Club had momentum. The dad hat was the natural next chapter\u2014a low-profile white cap with the CPCC crest embroidered front and center. Unstructured fit, adjustable strap, built for long days on the meadow.',
+                details: [
+                    'Low-profile unstructured fit',
+                    'Embroidered CPCC crest',
+                    'Adjustable strap',
+                    'White cotton twill'
+                ]
+            },
+            shirt: {
+                title: 'Inaugural Tee',
+                description: 'This is where it started.The 2024 Season Shirt was the first official merchandise ever produced by the Central Park Croquet Club — before the traditions, before the rivalries, before anyone knew how competitive things would get. The front pocket crest keeps it classic: crossed mallets, clean lines, quiet confidence. The back features a hand-drawn Central Park scene — skyline rising beyond the trees, wickets set, friends gathered, summer unfolding. It’s not just a shirt. It’s proof you were there when this was just an idea on a lawn.',
+                details: [
+                    'Soft white Comfort Colors cotton',
+                    'Minimalist green print',
+                    'Pocket logo on front',
+                    'Hand-drawn Central Park illustration on back',
+                    '"Summer 2024" marking'
+                ]
+            }
+        };
+
+        function openLightbox(gallery, startIndex) {
+            const product = gallery.dataset.product;
+            currentImages = gallery._images;
+            currentIndex = startIndex || 0;
+
+            // Build thumbnail strip
+            lightboxThumbs.innerHTML = '';
+            currentImages.forEach((src, i) => {
+                const btn = document.createElement('button');
+                btn.innerHTML = '<img src="' + src + '" alt="View ' + (i + 1) + '">';
+                if (i === currentIndex) btn.classList.add('active');
+                btn.addEventListener('click', () => showImage(i));
+                lightboxThumbs.appendChild(btn);
+            });
+
+            // Build description
+            const desc = productDescriptions[product];
+            if (desc) {
+                let html = '<h3>' + desc.title + '</h3>';
+                html += '<p>' + desc.description + '</p>';
+                if (desc.details) {
+                    html += '<ul>';
+                    desc.details.forEach(d => { html += '<li>' + d + '</li>'; });
+                    html += '</ul>';
+                }
+                lightboxDetails.innerHTML = html;
+            }
+
+            showImage(currentIndex);
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showImage(index) {
+            currentIndex = index;
+            lightboxImg.src = currentImages[index];
+            lightboxImg.alt = 'Product image ' + (index + 1) + ' of ' + currentImages.length;
+            lightboxImg.classList.remove('zoomed');
+            const thumbBtns = lightboxThumbs.querySelectorAll('button');
+            thumbBtns.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightboxImg.classList.remove('zoomed');
+            document.body.style.overflow = '';
+        }
+
+        // Zoom toggle on image click
+        lightboxImg.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lightboxImg.classList.toggle('zoomed');
+        });
+
+        // Open on gallery card click
+        document.querySelectorAll('.merch-gallery').forEach(gallery => {
+            gallery.addEventListener('click', (e) => {
+                // Don't open if arrow/dot was clicked (they stopPropagation)
+                openLightbox(gallery, gallery._getIndex());
+            });
+            gallery.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(gallery, gallery._getIndex());
+                }
+            });
+        });
+
+        // Navigation
+        prevBtn.addEventListener('click', () => {
+            showImage((currentIndex - 1 + currentImages.length) % currentImages.length);
+        });
+        nextBtn.addEventListener('click', () => {
+            showImage((currentIndex + 1) % currentImages.length);
+        });
+
+        // Close
+        lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Keyboard
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showImage((currentIndex - 1 + currentImages.length) % currentImages.length);
+            if (e.key === 'ArrowRight') showImage((currentIndex + 1) % currentImages.length);
+        });
+    }
 });
