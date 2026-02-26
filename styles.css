@@ -1126,6 +1126,12 @@ p {
     margin-top: var(--sp-4);
 }
 
+@media (min-width: 1024px) {
+    .grid-4.board-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
 .board-card {
     text-align: center;
 }

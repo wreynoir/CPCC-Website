@@ -227,12 +227,12 @@
         var cartOptions = {
           "styles": {
             "button": { "font-family": "Montserrat, sans-serif", "font-weight": "bold", ":hover": { "background-color": "#619166" }, "background-color": "#6ca171", ":focus": { "background-color": "#619166" }, "border-radius": "24px" },
-            "title": { "color": charcoal }, "header": { "color": charcoal }, "lineItems": { "color": charcoal },
+            "title": { "color": charcoal }, "header": { "color": charcoal }, "lineItems": { "color": charcoal, "padding-bottom": "15px" },
             "subtotalText": { "color": charcoal }, "subtotal": { "color": charcoal }, "notice": { "color": charcoal },
             "currency": { "color": charcoal }, "close": { "color": charcoal, ":hover": { "color": charcoal } },
             "empty": { "color": charcoal }, "noteDescription": { "color": charcoal },
             "discountText": { "color": charcoal }, "discountIcon": { "fill": charcoal }, "discountAmount": { "color": charcoal },
-            "cart": { "background-color": cream }, "footer": { "background-color": cream }
+            "cart": { "background-color": cream, "padding-bottom": "20px" }, "footer": { "background-color": cream }
           },
           "text": { "total": "Subtotal", "button": "Checkout" },
           "googleFonts": ["Montserrat"]
@@ -243,9 +243,10 @@
         };
         var lineItemOptions = {
           "styles": {
+            "item": { "margin-bottom": "15px" },
             "variantTitle": { "color": charcoal }, "title": { "color": charcoal }, "price": { "color": charcoal },
             "fullPrice": { "color": charcoal }, "discount": { "color": charcoal }, "discountIcon": { "fill": charcoal },
-            "quantity": { "color": charcoal },
+            "quantity": { "color": charcoal, "display": "flex", "flex-wrap": "nowrap", "margin-bottom": "15px" },
             "quantityIncrement": { "color": charcoal, "border-color": charcoal },
             "quantityDecrement": { "color": charcoal, "border-color": charcoal },
             "quantityInput": { "color": charcoal, "border-color": charcoal }
