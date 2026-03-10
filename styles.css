@@ -252,6 +252,7 @@ p {
 
 .section {
     padding: var(--sp-9) 0;
+    scroll-margin-top: 80px;
 }
 
 @media (min-width: 768px) {
@@ -1933,11 +1934,6 @@ a:focus-visible {
 /* ========================================
    Rules Page
    ======================================== */
-
-/* Scroll offset for fixed navbar */
-.rules-section {
-    scroll-margin-top: 80px;
-}
 
 /* Table of Contents */
 .rules-toc-section {
