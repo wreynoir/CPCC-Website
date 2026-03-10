@@ -1929,3 +1929,128 @@ a:focus-visible {
         display: none;
     }
 }
+
+/* ========================================
+   Rules Page
+   ======================================== */
+
+/* Scroll offset for fixed navbar */
+.rules-section {
+    scroll-margin-top: 80px;
+}
+
+/* Table of Contents */
+.rules-toc-section {
+    padding-top: var(--sp-4);
+    padding-bottom: var(--sp-6);
+}
+
+.rules-toc {
+    background: var(--c-white);
+    border-radius: 12px;
+    padding: var(--sp-4) var(--sp-6);
+    box-shadow: var(--shadow-sm);
+}
+
+.rules-toc-list {
+    list-style: none;
+    counter-reset: toc-counter;
+    padding: 0;
+    margin: 0;
+    columns: 1;
+}
+
+@media (min-width: 600px) {
+    .rules-toc-list {
+        columns: 2;
+        column-gap: var(--sp-6);
+    }
+}
+
+.rules-toc-list li {
+    counter-increment: toc-counter;
+    margin-bottom: var(--sp-1);
+    break-inside: avoid;
+}
+
+.rules-toc-list li a {
+    display: block;
+    padding: var(--sp-05) 0;
+    color: var(--c-text-charcoal);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 0.875rem + 0.1vw, 16px);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.rules-toc-list li a::before {
+    content: counter(toc-counter) ". ";
+    color: var(--c-green-600);
+    font-weight: 600;
+}
+
+.rules-toc-list li a:hover {
+    color: var(--c-green-500);
+}
+
+/* Court Diagram */
+.rules-diagram {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.rules-diagram svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Rules prose */
+.rules-prose p {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 1rem + 0.2vw, 18px);
+    line-height: 1.75;
+    margin-bottom: var(--sp-2);
+    color: var(--c-text-charcoal);
+}
+
+.rules-prose ul,
+.rules-prose ol {
+    padding-left: var(--sp-4);
+    margin-bottom: var(--sp-3);
+}
+
+.rules-prose li {
+    margin-bottom: var(--sp-1);
+    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 1rem + 0.2vw, 18px);
+    color: var(--c-text-charcoal);
+}
+
+/* Rule method/variation cards */
+.rules-methods {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    margin-top: var(--sp-4);
+}
+
+.rule-card {
+    text-align: left;
+}
+
+.rule-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 1.25rem + 0.3vw, 24px);
+    font-weight: 600;
+    margin-bottom: var(--sp-1);
+    color: var(--c-text-charcoal);
+}
+
+.rule-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(15px, 0.9rem + 0.1vw, 17px);
+    line-height: 1.7;
+    color: var(--c-text-muted);
+    margin: 0;
+}

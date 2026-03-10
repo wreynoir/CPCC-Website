@@ -581,4 +581,29 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'ArrowRight') showImage((currentIndex + 1) % currentImages.length);
         });
     }
+
+    // ============================================
+    // Rules Page: Rule Cards (Staggered Reveal)
+    // ============================================
+    const ruleCardGroups = document.querySelectorAll('.rules-methods');
+    if (ruleCardGroups.length > 0) {
+        ruleCardGroups.forEach(group => {
+            const cards = group.querySelectorAll('.rule-card');
+            gsap.fromTo(cards,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    stagger: 0.12,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: group,
+                        start: 'top 80%',
+                        toggleActions: 'play none none none'
+                    }
+                }
+            );
+        });
+    }
 });
