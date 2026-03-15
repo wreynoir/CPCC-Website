@@ -476,6 +476,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     'White cotton twill'
                 ]
             },
+            shirt2025: {
+                title: 'CPCC 2025 Shirt',
+                description: 'Croquet in Central Park is many things — competitive, social, occasionally chaotic — but above all, it follows one guiding principle: Play it as it lies. This year\'s CPCC season shirt captures the spirit of the lawn. A vintage-style illustration shows the eternal struggle: a player chasing down a rogue croquet ball while an overenthusiastic dog makes a break for it, the skyline rising behind the trees and spectators looking on. If you\'ve ever watched a perfectly planned shot get ruined by uneven grass, wandering park-goers, or a sudden burst of canine enthusiasm…you understand. Whether you\'re lining up the winning shot or chasing your ball across the lawn, this shirt is a reminder that in croquet — and in life — sometimes you just have to play it where it lands.',
+                details: [
+                    'Soft sage-green cotton built for summer park days',
+                    'White CPCC crest on the front',
+                    'Large vintage-style illustration on the back',
+                    'Features the club motto: "Play It As It Lies"'
+                ]
+            },
+            tote: {
+                title: 'CPCC Tote Bag',
+                description: 'Every proper day of croquet requires a few essentials. A drink. A snack. A speaker. And occasionally a replacement ball after someone sends one deep into the bushes. The CPCC Tote Bag is made for afternoons in Central Park — roomy enough for everything you need for a long day on the lawn, durable enough for regular park adventures, and finished with the Central Park Croquet Club crest for those who know. The clean white body and mint-green emblem give it a relaxed, vintage club feel, while reinforced stitching and a laminated interior make it practical for whatever the day brings — whether that\'s croquet matches, farmers\' markets, or a picnic under the trees. Because the best days in Central Park tend to require a good bag.',
+                details: [
+                    'Durable medium-weight polyester body (200 g/m²)',
+                    'Boxed corners for extra interior space',
+                    'Laminated interior for easy wipe-clean protection',
+                    'Handle options available in Black, White, or Beige'
+                ]
+            },
             shirt: {
                 title: 'Inaugural Tee',
                 description: 'This is where it started.The 2024 Season Shirt was the first official merchandise ever produced by the Central Park Croquet Club — before the traditions, before the rivalries, before anyone knew how competitive things would get. The front pocket crest keeps it classic: crossed mallets, clean lines, quiet confidence. The back features a hand-drawn Central Park scene — skyline rising beyond the trees, wickets set, friends gathered, summer unfolding. It’s not just a shirt. It’s proof you were there when this was just an idea on a lawn.',

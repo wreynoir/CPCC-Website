@@ -70,6 +70,66 @@
     <section class="section bg-cream">
         <div class="container">
             <div class="grid-merch">
+                <!-- 2026 Tote Bag -->
+                <div class="merch-item">
+                    <span class="merch-season-tag">2026</span>
+                    <div class="merch-carousel">
+                        <button class="merch-arrow merch-arrow-prev" aria-label="Previous image">&#8249;</button>
+                        <div class="merch-center-col">
+                            <div class="merch-gallery" data-product="tote" role="button" tabindex="0" aria-label="View tote bag details">
+                                <img class="merch-slide" src="assets/CPCC%20Tote%20Bag%20-%20Black%20Main.png" alt="CPCC Tote Bag">
+                                <div class="merch-dots"></div>
+                                <div class="merch-slides-data" hidden>
+                                    <span data-src="assets/CPCC%20Tote%20Bag%20-%20Black%20Main.png">Black</span>
+                                    <span data-src="assets/CPCC%20Tote%20Bag%20-%20Black%20Hold.png">Black Hold</span>
+                                    <span data-src="assets/CPCC%20Tote%20Bag%20-%20Black%20Background.png">Black In Park</span>
+                                    <span data-src="assets/CPCC%20Tote%20Bag%20-%20White%20Main.png">White</span>
+                                    <span data-src="assets/CPCC%20Tote%20Bag%20-%20White%20Hold.png">White Hold</span>
+                                    <span data-src="assets/CPCC%20Tote%20Bag%20-%20White%20Background.png">White In Park</span>
+                                    <span data-src="assets/CPCC%20Tote%20Bag%20-%20Biege%20Main.png">Beige</span>
+                                    <span data-src="assets/CPCC%20Tote%20Bag%20-%20Biege%20Hold.png">Beige Hold</span>
+                                    <span data-src="assets/CPCC%20Tote%20Bag%20-%20Biege%20Background.png">Beige In Park</span>
+                                </div>
+                            </div>
+                            <div class="merch-product-info">
+                                <h3>CPCC Tote Bag</h3>
+                                <p class="merch-price">$20.00</p>
+                            </div>
+                            <div id="product-component-tote-2025"></div>
+                        </div>
+                        <button class="merch-arrow merch-arrow-next" aria-label="Next image">&#8250;</button>
+                    </div>
+                </div>
+
+                <!-- 2025 Shirt -->
+                <div class="merch-item">
+                    <span class="merch-season-tag">2025</span>
+                    <div class="merch-carousel">
+                        <button class="merch-arrow merch-arrow-prev" aria-label="Previous image">&#8249;</button>
+                        <div class="merch-center-col">
+                            <div class="merch-gallery" data-product="shirt2025" role="button" tabindex="0" aria-label="View 2025 shirt details">
+                                <img class="merch-slide" src="assets/CPCC%202025%20Shirt%20-%20Front.png" alt="CPCC 2025 Shirt">
+                                <div class="merch-dots"></div>
+                                <div class="merch-slides-data" hidden>
+                                    <span data-src="assets/CPCC%202025%20Shirt%20-%20Front.png">Front</span>
+                                    <span data-src="assets/CPCC%202025%20Shirt%20-%20Back.png">Back</span>
+                                    <span data-src="assets/CPCC%202025%20Shirt%20-%20Folded.png">Folded</span>
+                                    <span data-src="assets/CPCC%202025%20Shirt%20-%20Male%20Front.png">Male Front</span>
+                                    <span data-src="assets/CPCC%202025%20Shirt%20-%20Male%20Back.png">Male Back</span>
+                                    <span data-src="assets/CPCC%202025%20Shirt%20-%20Female%20Front.png">Female Front</span>
+                                    <span data-src="assets/CPCC%202025%20Shirt%20-%20Female%20Back.png">Female Back</span>
+                                </div>
+                            </div>
+                            <div class="merch-product-info">
+                                <h3>CPCC 2025 Shirt</h3>
+                                <p class="merch-price">$25.00</p>
+                            </div>
+                            <div id="product-component-shirt-2025"></div>
+                        </div>
+                        <button class="merch-arrow merch-arrow-next" aria-label="Next image">&#8250;</button>
+                    </div>
+                </div>
+
                 <!-- 2025 Hat -->
                 <div class="merch-item">
                     <span class="merch-season-tag">2025</span>
@@ -278,6 +338,59 @@
             moneyFormat: '%24%7B%7Bamount%7D%7D',
             options: {
               "product": cartOnlyProduct, "option": {}, "cart": cartOptions, "toggle": toggleOptions, "lineItem": lineItemOptions
+            }
+          });
+
+          /* 2025 Shirt */
+          ui.createComponent('product', {
+            id: '15045763334508',
+            node: document.getElementById('product-component-shirt-2025'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: {
+              "product": cartOnlyProduct, "option": {}, "cart": cartOptions, "toggle": toggleOptions, "lineItem": lineItemOptions
+            }
+          });
+          /* Tote Bag — show variant selector for handle color */
+          var toteProduct = {
+            "styles": productStyles,
+            "contents": { "img": false, "title": false, "price": false, "options": true, "button": true },
+            "text": { "button": "Add to cart" },
+            "googleFonts": ["Cormorant Garamond", "Montserrat"]
+          };
+          var toteOptionStyles = {
+            "styles": {
+              "option": {
+                "font-family": "Montserrat, sans-serif",
+                "font-size": "14px",
+                "color": charcoal
+              },
+              "label": {
+                "font-family": "Cormorant Garamond, serif",
+                "font-size": "18px",
+                "font-weight": "600",
+                "letter-spacing": "0.02em",
+                "color": charcoal
+              },
+              "select": {
+                "font-family": "Montserrat, sans-serif",
+                "font-size": "14px",
+                "color": charcoal,
+                "border-color": "#E0D8C8",
+                "border-radius": "8px",
+                "padding": "10px 14px",
+                "background-color": "#FDFCF9"
+              },
+              "wrapper": {
+                "margin-bottom": "12px"
+              }
+            }
+          };
+          ui.createComponent('product', {
+            id: '15045765005676',
+            node: document.getElementById('product-component-tote-2025'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: {
+              "product": toteProduct, "option": toteOptionStyles, "cart": cartOptions, "toggle": toggleOptions, "lineItem": lineItemOptions
             }
           });
 
