@@ -1345,17 +1345,76 @@ p {
 }
 
 /* Merch Page */
+
+/* Season sections */
+.merch-season {
+    margin-bottom: var(--sp-9);
+}
+
+.merch-season:last-child {
+    margin-bottom: 0;
+}
+
+.merch-season-heading {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    color: var(--c-text-charcoal);
+    text-align: center;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--sp-6);
+    position: relative;
+}
+
+.merch-season-heading::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: var(--c-gold-500);
+    margin: var(--sp-2) auto 0;
+}
+
+/* Product grid */
 .grid-merch {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--sp-4);
-    margin-top: var(--sp-4);
 }
 
 @media (min-width: 768px) {
     .grid-merch {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--sp-6);
+    }
+
+    .grid-merch-single {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* 3-column on wide screens */
+@media (min-width: 1200px) {
+    .grid-merch {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .merch-featured {
+        grid-column: span 2;
+    }
+
+    .merch-featured .merch-gallery {
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .grid-merch-single {
+        grid-template-columns: 1fr;
+        max-width: 400px;
     }
 }
 

@@ -466,6 +466,18 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentIndex = 0;
 
         const productDescriptions = {
+            shirt2026: {
+                title: 'The Blueprint Tee',
+                description: 'By 2026, the Central Park Croquet Club had a system. Not an official one — nothing written down, nothing enforced — but a rhythm. A layout. A way things are done. This shirt captures it. The back features a blueprint-style diagram of the CPCC lawn: wickets mapped out, equipment detailed, and the essential elements of a proper day in the park — from mallets and balls to chairs, coolers, and the unofficial sidelines setup. Coordinates mark the place it all happens. It\'s equal parts game plan and field study. A nod to the idea that what started as a casual gathering has quietly become something more structured — without ever taking itself too seriously. The washed blue fabric gives it a worn-in, lived-in feel from day one, like something that\'s already been through a few long afternoons on the grass. Because by now, you don\'t just play the game — you understand the system.',
+                details: [
+                    'Snow-washed 100% cotton for a soft, vintage feel',
+                    'Oversized, relaxed fit with drop shoulders',
+                    'White CPCC crest on the front',
+                    'Blueprint-style full back graphic',
+                    'Coordinates marking the home lawn',
+                    'Unisex fit'
+                ]
+            },
             hat: {
                 title: 'Club Cap',
                 description: 'By 2025, the Club had momentum. The dad hat was the natural next chapter\u2014a low-profile white cap with the CPCC crest embroidered front and center. Unstructured fit, adjustable strap, built for long days on the meadow.',
