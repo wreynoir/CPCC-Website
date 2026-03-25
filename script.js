@@ -489,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             },
             shirt2025: {
-                title: 'CPCC 2025 Shirt',
+                title: 'Play It As It Lies Tee',
                 description: 'Croquet in Central Park is many things — competitive, social, occasionally chaotic — but above all, it follows one guiding principle: Play it as it lies. This year\'s CPCC season shirt captures the spirit of the lawn. A vintage-style illustration shows the eternal struggle: a player chasing down a rogue croquet ball while an overenthusiastic dog makes a break for it, the skyline rising behind the trees and spectators looking on. If you\'ve ever watched a perfectly planned shot get ruined by uneven grass, wandering park-goers, or a sudden burst of canine enthusiasm…you understand. Whether you\'re lining up the winning shot or chasing your ball across the lawn, this shirt is a reminder that in croquet — and in life — sometimes you just have to play it where it lands.',
                 details: [
                     'Soft sage-green cotton built for summer park days',
