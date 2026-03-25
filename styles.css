@@ -1380,41 +1380,17 @@ p {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--sp-4);
+    justify-content: center;
 }
 
 @media (min-width: 768px) {
     .grid-merch {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 420px));
         gap: var(--sp-6);
     }
 
     .grid-merch-single {
-        grid-template-columns: 1fr;
-        max-width: 480px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-/* 3-column on wide screens */
-@media (min-width: 1200px) {
-    .grid-merch {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .merch-featured {
-        grid-column: span 2;
-    }
-
-    .merch-featured .merch-gallery {
-        max-width: 520px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .grid-merch-single {
-        grid-template-columns: 1fr;
-        max-width: 400px;
+        grid-template-columns: minmax(0, 420px);
     }
 }
 
